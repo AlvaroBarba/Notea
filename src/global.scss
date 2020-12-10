@@ -24,3 +24,59 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.loading-wrapper{
+    background: transparent !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.new-toolbar-background-color{
+    --background: rgb(0, 29, 92);
+}
+
+.new-tab-color{
+    --ion-tab-bar-background: rgb(0, 29, 92);
+}
+
+.new-button-color{
+    --background: rgb(0, 29, 92);
+    font-family: My app Custom Font;
+    font-size: 100%;
+}
+
+.appFontTitle{
+    font-family: My app Custom Font;
+    font-size: 200%;
+    text-align: center;
+}
+
+.appFont{
+    font-family: My app Custom Font;
+    font-size: 100%;
+}
+
+.appTitle{
+    font-family: My Titlte App Custom Font;
+}
+
+.my-custom-alert{
+    font-family: My app Custom Font;
+    font-size: 100%;
+}
+
+
+
+@font-face {
+    font-family: 'My App Custom Font';
+    font-style: normal;
+    font-weight: normal;
+    src: url('assets/fonts/appFonts/app.ttf');
+  }
+
+  @font-face {
+    font-family: 'My Titlte App Custom Font';
+    font-style: normal;
+    font-weight: normal;
+    src: url('assets/fonts/appFonts/titleFont.ttf');
+  }

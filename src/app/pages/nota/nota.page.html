@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="dark" (click)="this.backButton()">
+          <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>{{nota.titulo}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-label>
+    <h3>{{nota.texto}}</h3>
+  </ion-label>
+</ion-content>
