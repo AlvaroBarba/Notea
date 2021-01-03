@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Nota } from 'src/app/model/nota';
+import { TtsService } from 'src/app/services/tts.service';
 
 @Component({
   selector: 'app-nota',
@@ -9,17 +10,25 @@ import { Nota } from 'src/app/model/nota';
 })
 export class NotaPage implements OnInit {
 
-  nota:Nota 
+  nota:Nota
+  text:string
 
-  constructor(private controller:ModalController) {
+  constructor(private controller:ModalController,
+    private tts: TtsService) {
     
   }
 
   ngOnInit() {
   }
 
+
   backButton(){
     this.controller.dismiss();
+  }
+
+  async speak(){
+    this.text = this.nota.texto
+    this.tts.talk(this.text);
   }
 
 }
