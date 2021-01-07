@@ -17,5 +17,4 @@ export class TtsService {
     .then(() => console.log("Leido!!"))
     .catch((failed:any) => console.log(failed));
   }
-  
 }

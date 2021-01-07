@@ -17,7 +17,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { AuthService } from './services/auth.service';
-import { TtsService } from './services/tts.service';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
 
 @NgModule({

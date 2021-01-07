@@ -1,11 +1,14 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="new-toolbar-background-color">
+  <ion-toolbar>
+    <ion-buttons slot='start'>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
     <ion-buttons slot="end">
     <ion-button (click)="this.showSearch()">
       <ion-icon name="search-outline"></ion-icon>
     </ion-button>
   </ion-buttons>
-    <ion-title class="appFontTitle">
+    <ion-title>
       Notas
     </ion-title>
   </ion-toolbar>
@@ -28,7 +31,7 @@
        </ion-item-options>
       <ion-item>
         <ion-label (click)="this.muestraNota(this.nota)">
-          <p style="font-size: 150% !important;" class="appFont">{{nota.titulo}}</p>
+          <p class="tBlanco">{{nota.titulo}}</p>
         </ion-label>
       </ion-item>
       <ion-item-options side="end" (ionSwipe)="this.editaNota(nota)">

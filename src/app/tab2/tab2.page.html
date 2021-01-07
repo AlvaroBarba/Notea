@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
-  <ion-toolbar class="new-toolbar-background-color">
-    <ion-title class="appFontTitle">
+  <ion-toolbar>
+    <ion-buttons slot='start'>
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
       Añadir Tarea
     </ion-title>
   </ion-toolbar>
@@ -9,12 +12,12 @@
 <ion-content [fullscreen]="true">
   <form [formGroup]="tasks" (ngSubmit)="this.sendForm()">
     <ion-item>
-      <ion-input class="appFont" type="text" 
+      <ion-input type="text" 
       formControlName="title"
       placeholder="Título"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-textarea class="appFont"
+      <ion-textarea
       formControlName="description"
       placeholder="Descripción"
       autocapitalize="true"
@@ -22,7 +25,7 @@
     </ion-item>
     <div style="text-align: right;">
       <ion-button 
-      class="new-button-color"
+      class="boton"
       shape="round"
       type="submit"
       [disabled]="!tasks.valid">Añadir</ion-button>

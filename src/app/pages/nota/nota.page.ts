@@ -26,7 +26,7 @@ export class NotaPage implements OnInit {
     this.controller.dismiss();
   }
 
-  async speak(){
+  speak(){
     this.text = this.nota.texto
     this.tts.talk(this.text);
   }

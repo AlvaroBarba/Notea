@@ -25,47 +25,168 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-.loading-wrapper{
-    background: transparent !important;
-    -webkit-box-shadow: none !important;
-    box-shadow: none !important;
-}
 
-.new-toolbar-background-color{
-    --background: rgb(0, 29, 92);
-}
+:root{
+    .dark-theme{
+      //Formato Texto
+      .tituloApp{
+        text-align: center;
+        font-family: My Titlte App Custom Font;
+        font-size: 500%;
+      }
 
-.new-tab-color{
-    --ion-tab-bar-background: rgb(0, 29, 92);
-}
+      //Formato Botones
+        .botonLogin{
+          text-align: center;
+        }
 
-.new-button-color{
-    --background: rgb(0, 29, 92);
-    font-family: My app Custom Font;
-    font-size: 100%;
-}
+      //Color para el texto
+        --ion-text-color: rgb(255, 255, 255);
+        .tBlanco{
+          color: rgb(255, 255, 255);
+        }
 
-.appFontTitle{
-    font-family: My app Custom Font;
-    font-size: 200%;
-    text-align: center;
-}
+      //Color para el fondo
+        --ion-background-color: rgb(53, 52, 52);
 
-.appFont{
-    font-family: My app Custom Font;
-    font-size: 100%;
-}
+      //Color Botones
+        .boton{
+          --background: #470081;
+          color:rgb(255, 255, 255);
+        }
 
-.appTitle{
-    font-family: My Titlte App Custom Font;
-}
+      //Color iconos
+        .swipeIcon{
+          color: #ba56ce;
+        }
 
-.my-custom-alert{
-    font-family: My app Custom Font;
-    font-size: 100%;
-}
+        .backButton{
+          color:rgb(255, 255, 255);
+        }
 
+      //Toolbar
+       --ion-toolbar-background:#470081;
+       --ion-toolbar-border-color: #32005a;
+       --ion-toolbar-color: rgb(255, 255, 255);
 
+       ion-toolbar{
+         text-align: center;
+         font-family: My App Custom Font;
+       }
+
+      //TabBar
+        --ion-tab-bar-background:#470081;
+        --ion-tab-bar-border-color:#32005a;
+        --ion-tab-bar-color-selected: #ba56ce;
+        --ion-tab-bar-color: rgb(255, 255, 255);
+    }
+
+    .light-theme{
+      //Formato Texto
+      .tituloApp{
+        text-align: center;
+        font-family: My Titlte App Custom Font;
+        font-size: 500%;
+      }
+
+      //Formato Botones
+        .botonLogin{
+          text-align: center;
+        }
+
+      //Color para el texto
+        --ion-text-color: rgb(0, 0, 0);
+        .tBlanco{
+          color: rgb(0, 0, 0);
+        }
+
+      //Color para el fondo
+        --ion-background-color: rgb(255, 255, 255);
+
+      //Color Botones
+        .boton{
+          --background: #ffa600;
+          color:rgb(0, 0, 0);
+        }
+
+      //Color iconos
+        .swipeIcon{
+          color: #ffa600;
+        }
+
+        .backButton{
+          color:rgb(0, 0, 0);
+        }
+
+      //Toolbar
+       --ion-toolbar-background:#e04141;
+       --ion-toolbar-border-color: #b63535;
+       --ion-toolbar-color: rgb(0,0,0);
+
+       ion-toolbar{
+         text-align: center;
+         font-family: My App Custom Font;
+       }
+
+      //TabBar
+        --ion-tab-bar-background:#e04141;
+        --ion-tab-bar-border-color:#b63535;
+        --ion-tab-bar-color-selected: #000000;
+        --ion-tab-bar-color: rgb(0, 0, 0);
+    }
+
+    //Tema por defecto
+    .tituloApp{
+      text-align: center;
+      font-family: My Titlte App Custom Font;
+      font-size: 500%;
+    }
+
+    //Formato Botones
+      .botonLogin{
+        text-align: center;
+      }
+
+    //Color para el texto
+      --ion-text-color: rgb(0, 0, 0);
+      .tBlanco{
+        color: rgb(0, 0, 0);
+      }
+
+    //Color para el fondo
+      --ion-background-color: rgb(190, 144, 216);
+
+    //Color Botones
+      .boton{
+        --background: #3699aa;
+        color:rgb(0, 0, 0);
+      }
+
+    //Color iconos
+      .swipeIcon{
+        color: #000000;
+      }
+
+      .backButton{
+        color:rgb(0, 0, 0);
+      }
+
+    //Toolbar
+     --ion-toolbar-background:rgb(105, 62, 129);
+     --ion-toolbar-border-color: rgb(66, 40, 82);
+     --ion-toolbar-color: rgb(0,0,0);
+
+     ion-toolbar{
+       text-align: center;
+       font-family: My App Custom Font;
+     }
+
+    //TabBar
+      --ion-tab-bar-background:rgb(105, 62, 129);
+      --ion-tab-bar-border-color:rgb(66, 40, 82);
+      --ion-tab-bar-color-selected: #000000;
+      --ion-tab-bar-color: rgb(0, 0, 0);
+  }
 
 @font-face {
     font-family: 'My App Custom Font';
@@ -78,5 +199,5 @@
     font-family: 'My Titlte App Custom Font';
     font-style: normal;
     font-weight: normal;
-    src: url('assets/fonts/appFonts/titleFont.ttf');
+    src: url('assets/fonts/appFonts/Adventure.ttf');
   }

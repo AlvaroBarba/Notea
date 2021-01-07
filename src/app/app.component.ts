@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AuthService } from './services/auth.service';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -11,11 +12,15 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+
+  logged:boolean
+
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private authS:AuthService
+    private authS:AuthService,
+    private theme: ThemeService,
   ) {
     this.initializeApp();
   }
@@ -26,6 +31,18 @@ export class AppComponent {
       this.splashScreen.hide();
       this.authS.init();
     });
+  }
+
+  enableDark(){
+    this.theme.enableDark();
+  }
+
+  enableLight(){
+    this.theme.enableLight();
+  }
+
+  enableDefault(){
+    this.theme.enableDefault();
   }
 
 }
