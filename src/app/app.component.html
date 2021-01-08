@@ -2,22 +2,22 @@
   <ion-menu content-id='main'>
     <ion-header>
       <ion-toolbar>
-        <ion-title>Menú</ion-title>
+        <ion-title>{{'appComponent.titulo' | translate}}</ion-title>
       </ion-toolbar>
     </ion-header>
     <ion-content>
       <ion-list>
         <ion-item (click)="this.enableDark()">
           <ion-icon class="swipeIcon" name="color-palette-outline"></ion-icon>
-          <ion-label> Tema Oscuro</ion-label>
+          <ion-label>{{'appComponent.tema1' | translate}}</ion-label>
         </ion-item>
         <ion-item (click)="this.enableLight()">
           <ion-icon class="swipeIcon" name="color-palette-outline"></ion-icon>
-          <ion-label> Tema claro</ion-label>
+          <ion-label>{{'appComponent.tema2' | translate}}</ion-label>
         </ion-item>
         <ion-item (click)="this.enableDefault()">
           <ion-icon class="swipeIcon" name="color-palette-outline"></ion-icon>
-          <ion-label> Tema predeterminado</ion-label>
+          <ion-label>{{'appComponent.tema3' | translate}}</ion-label>
         </ion-item>
       </ion-list>
     </ion-content>

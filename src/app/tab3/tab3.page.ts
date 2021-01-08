@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Usuario } from '../model/usuario';
 import { AuthService } from '../services/auth.service';
+import { LanguageService } from '../services/language.service';
 import { ThemeService } from '../services/theme.service';
 
 @Component({
@@ -10,9 +12,14 @@ import { ThemeService } from '../services/theme.service';
 })
 export class Tab3Page {
 
+  usuario:Usuario
+
   constructor(private authS:AuthService,
     private router: Router,
-    private theme: ThemeService) {
+    private theme: ThemeService,
+    private lang: LanguageService) {
+      
+      this.usuario = authS.getUser();
     }
 
   public async logout(){
@@ -28,6 +35,11 @@ export class Tab3Page {
 
   enableLight(){
     this.theme.enableLight();
+  }
+
+  changeLanguage($event){
+    this.lang.setLanguage($event.target.value);
+    console.log($event.target.value);
   }
 
 }

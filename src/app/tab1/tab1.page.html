@@ -9,7 +9,7 @@
     </ion-button>
   </ion-buttons>
     <ion-title>
-      Notas
+      {{'tab1.titulo' | translate}}
     </ion-title>
   </ion-toolbar>
   <ion-searchbar placeholder="Buscar" (ionChange)="this.filterList($event)" *ngIf="search" (ionBlur)="this.closeSearch()"> </ion-searchbar>

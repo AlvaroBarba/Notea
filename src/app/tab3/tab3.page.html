@@ -4,15 +4,32 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title class="appFontTitle">
-      Perfil
+      {{'tab3.titulo' | translate}}
     </ion-title>
     <ion-buttons slot="end">
     <ion-button (click)="this.logout()" class="appFont, new-button-color">
-      Cerrar Sesion
+      {{'tab3.logout' | translate}}
     </ion-button>
   </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <ion-list>
+    <ion-item lines="none">
+    <ion-avatar slot="start">
+      <img [src]="usuario.avatar">
+    </ion-avatar>
+    <ion-label>
+      <h3>{{usuario.name}}</h3>
+    </ion-label>
+  </ion-item>
+  <ion-item>
+    <ion-label>{{'tab3.idioma' | translate}}</ion-label>
+    <ion-select placeholder="{{'tab3.idiomaDefecto' | translate}}" (ionChange)="changeLanguage($event)" interface="popover">
+      <ion-select-option value="es">{{'tab3.select1' | translate}}</ion-select-option>
+      <ion-select-option value="en">{{'tab3.select2' | translate}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
 </ion-content>

@@ -18,6 +18,14 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
 import { AuthService } from './services/auth.service';
 import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { IonicStorageModule } from '@ionic/storage';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [AppComponent,EditNotaPage],
@@ -25,7 +33,16 @@ import { TextToSpeech } from '@ionic-native/text-to-speech/ngx';
   imports: [
     BrowserModule, 
     ReactiveFormsModule,
+    HttpClientModule,
     IonicModule.forRoot(),
+    IonicStorageModule.forRoot(), 
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule

@@ -1,0 +1,41 @@
+{
+    "edit-nota":{
+    "titulo":"EDITAR NOTA",
+    "boton":"Guardar Cambios"
+    },
+
+    "login":{
+        "titulo":"INICIO DE SESIÓN",
+        "NombreApp":"NOTEA",
+        "botonGoogle":"Inicie Sesion con Google"
+    },
+
+    "tab1":{
+        "titulo":"NOTAS"
+    },
+
+    "tab2":{
+        "titulo":"AÑADIR NOTA",
+        "boton":"Guardar Nota",
+        "placeholder1":"Titulo",
+        "placeholder2":"Descripción"
+    },
+
+    "tab3":{
+        "titulo":"PERFIL",
+        "logout":"Cerrar Sesión",
+        "idioma":"Idioma",
+        "idiomaDefecto":"Por Defecto",
+        "select1":"Español",
+        "select2":"Inglés"
+    },
+
+    "appComponent":{
+        "titulo":"MENÚ",
+        "tema1":"Tema Oscuro",        
+        "tema2":"Tema Claro",
+        "tema3":"Tema Predeterminado"
+        
+    }
+
+}

@@ -4,7 +4,7 @@
       <ion-menu-button></ion-menu-button>
     </ion-buttons>
     <ion-title>
-      Añadir Tarea
+      {{'tab2.titulo' | translate}}
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -14,12 +14,12 @@
     <ion-item>
       <ion-input type="text" 
       formControlName="title"
-      placeholder="Título"></ion-input>
+      placeholder="{{'tab2.placeholder1' | translate}}"></ion-input>
     </ion-item>
     <ion-item>
       <ion-textarea
       formControlName="description"
-      placeholder="Descripción"
+      placeholder="{{'tab2.placeholder2' | translate}}"
       autocapitalize="true"
       auto-grow="true"></ion-textarea>
     </ion-item>
@@ -28,7 +28,7 @@
       class="boton"
       shape="round"
       type="submit"
-      [disabled]="!tasks.valid">Añadir</ion-button>
+      [disabled]="!tasks.valid">{{'tab2.boton' | translate}}</ion-button>
   </div>
   </form>
 </ion-content>

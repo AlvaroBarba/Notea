@@ -1,0 +1,41 @@
+{
+    "edit-nota":{
+    "titulo":"EDIT NOTE",
+    "boton":"Save Changes"
+    },
+
+    "login":{
+        "titulo":"LOGIN",
+        "NombreApp":"NOTEA",
+        "botonGoogle":"Login whith Google"
+    },
+
+    "tab1":{
+        "titulo":"NOTE"
+    },
+
+    "tab2":{
+        "titulo":"ADD NOTE",
+        "boton":"Save Note",
+        "placeholder1":"Title",
+        "placeholder2":"Description"
+    },
+
+    "tab3":{
+        "titulo":"PROFILE",
+        "logout":"Logout",
+        "idioma":"Language",
+        "idiomaDefecto":"Default",
+        "select1":"Spanish",
+        "select2":"English"
+    },
+
+    "appComponent":{
+        "titulo":"MENU",
+        "tema1":"Dark Theme",        
+        "tema2":"Light Theme",
+        "tema3":"Default Theme"
+        
+    }
+
+}
