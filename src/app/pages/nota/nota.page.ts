@@ -65,19 +65,17 @@ export class NotaPage implements OnInit {
         draggable:
           true
       }).addTo(this.mapa);
+      setTimeout(()=>{
+        this.mapa.invalidateSize();
+      }, 400);
+
       //Este switch para controlar el idioma del mensaje en el mapa
       switch(this.lang.selected){
         case "es":
           this.marcador.bindPopup("Coche aparcado aquí").openPopup();
-          setTimeout(()=>{
-            this.mapa.invalidateSize();
-          }, 400);
           break;
         case "en":
           this.marcador.bindPopup("Your car is here").openPopup();
-          setTimeout(()=>{
-            this.mapa.invalidateSize();
-          }, 400);
           break;
       }
     }
