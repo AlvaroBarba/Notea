@@ -12,9 +12,10 @@ export class LanguageService {
   selected= '';
   lang:any;
 
-  constructor(private translate: TranslateService, private storage:Storage, private plt: Platform) {
+  constructor(private translate: TranslateService, private storage:Storage, private plt: Platform) { }
 
-   }
+  //Función para seleccionar idioma inicial 
+
    setInitialAppLanguage(){
      let language=this.translate.getBrowserLang();
      this.translate.setDefaultLang(language);
@@ -26,7 +27,9 @@ export class LanguageService {
        }
      });
    }
-   
+
+   //Para seleccionar el idioma
+
    setLanguage(lng){
      this.translate.use(lng);
      this.selected=lng;

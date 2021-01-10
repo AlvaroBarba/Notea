@@ -8,6 +8,8 @@ export class TtsService {
 
   constructor(private tts: TextToSpeech) {}
 
+  //Servicio de lectura de notas
+
   talk(text){
     return this.tts.speak({
       text: text,

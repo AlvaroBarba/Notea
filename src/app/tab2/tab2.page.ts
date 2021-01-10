@@ -2,7 +2,9 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { LoadingController, ToastController } from '@ionic/angular';
 import { Nota } from '../model/nota';
+import { LoadingService } from '../services/loading.service';
 import { NotasService } from '../services/notas.service';
+import { ToastService } from '../services/toast.service';
 
 @Component({
   selector: 'app-tab2',
@@ -15,8 +17,8 @@ export class Tab2Page {
   constructor(
     private formBuilder:FormBuilder,
     private notasS:NotasService,
-    public loadingController: LoadingController,
-    public toastController: ToastController
+    private loading:LoadingService,
+    private toast: ToastService
   ) {
     this.tasks=this.formBuilder.group({
       title:['',Validators.required],
@@ -25,7 +27,7 @@ export class Tab2Page {
   }
 
   public async sendForm(){
-    await this.presentLoading();
+    await this.loading.presentLoading();
     
     let data:Nota={
       titulo:this.tasks.get('title').value,
@@ -37,32 +39,13 @@ export class Tab2Page {
         title:'',
         description:''
       })
-      this.loadingController.dismiss();
-      this.presentToast("Nota guardada","success");
+      this.loading.loadingController.dismiss();
+      this.toast.presentToast("Nota guardada","success");
     })
     .catch((err)=>{
-      this.loadingController.dismiss();
-      this.presentToast("Error guardando nota","danger");
+      this.loading.loadingController.dismiss();
+      this.toast.presentToast("Error guardando nota","danger");
       console.log(err);
     })
   }
-
-  async presentLoading() {
-    const loading = await this.loadingController.create({
-      cssClass: 'my-custom-class',
-      message: '',
-      spinner:'crescent'
-    });
-    await loading.present();
-  }
-  async presentToast(msg:string,col:string) {
-    const toast = await this.toastController.create({
-      message: msg,
-      color:col,
-      duration: 2000,
-      position:"top"
-    });
-    toast.present();
-  }
-
 }

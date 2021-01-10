@@ -136,6 +136,7 @@
     }
 
     //Tema por defecto
+    
     .tituloApp{
       text-align: center;
       font-family: My Titlte App Custom Font;
@@ -154,12 +155,12 @@
       }
 
     //Color para el fondo
-      --ion-background-color: rgb(190, 144, 216);
+      --ion-background-color: rgb(236, 243, 134);
 
     //Color Botones
       .boton{
-        --background: #3699aa;
-        color:rgb(0, 0, 0);
+        --background: #000000;
+        color:rgb(255, 238, 0);
       }
 
     //Color iconos
@@ -172,8 +173,8 @@
       }
 
     //Toolbar
-     --ion-toolbar-background:rgb(105, 62, 129);
-     --ion-toolbar-border-color: rgb(66, 40, 82);
+     --ion-toolbar-background:rgb(238, 255, 0);
+     --ion-toolbar-border-color: rgb(238, 200, 0);
      --ion-toolbar-color: rgb(0,0,0);
 
      ion-toolbar{
@@ -182,8 +183,8 @@
      }
 
     //TabBar
-      --ion-tab-bar-background:rgb(105, 62, 129);
-      --ion-tab-bar-border-color:rgb(66, 40, 82);
+      --ion-tab-bar-background:rgb(222, 235, 51);
+      --ion-tab-bar-border-color:rgb(165, 177, 4);
       --ion-tab-bar-color-selected: #000000;
       --ion-tab-bar-color: rgb(0, 0, 0);
   }

@@ -11,7 +11,8 @@
     },
 
     "tab1":{
-        "titulo":"NOTAS"
+        "titulo":"NOTAS",
+        "borrar":"Borrar"
     },
 
     "tab2":{

@@ -1,5 +1,5 @@
 <ion-app>
-  <ion-menu content-id='main'>
+  <ion-menu content-id='main' *ngIf="this.checkURL()">
     <ion-header>
       <ion-toolbar>
         <ion-title>{{'appComponent.titulo' | translate}}</ion-title>

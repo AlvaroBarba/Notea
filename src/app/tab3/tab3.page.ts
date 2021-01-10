@@ -29,13 +29,7 @@ export class Tab3Page {
     }
   }
 
-  enableDark(){
-    this.theme.enableDark();
-  }
-
-  enableLight(){
-    this.theme.enableLight();
-  }
+  //Función para cambiar el idioma de la aplicación
 
   changeLanguage($event){
     this.lang.setLanguage($event.target.value);

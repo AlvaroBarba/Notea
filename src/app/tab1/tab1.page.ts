@@ -7,6 +7,8 @@ import { NativeStorage } from '@ionic-native/native-storage/ngx';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { NotaPage } from '../pages/nota/nota.page';
+import { LanguageService } from '../services/language.service';
+import { LocationService } from '../services/location.service';
 
 
 @Component({
@@ -14,17 +16,21 @@ import { NotaPage } from '../pages/nota/nota.page';
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss']
 })
-export class Tab1Page implements OnInit{
+export class Tab1Page implements OnInit {
 
   public listaNotas = [];
   public listaNotasCopy = [];
-  public search:boolean = false;
+  public search: boolean = false;
+  private latitud = null
+  private longitud = null;
 
   constructor(private notasS: NotasService,
     private modalController: ModalController,
     private nativeStorage: NativeStorage,
     private alertController: AlertController,
     private authS: AuthService,
+    private lang: LanguageService,
+    private locator: LocationService,
     private router: Router) { }
 
 
@@ -69,44 +75,69 @@ export class Tab1Page implements OnInit{
     }
   }
 
-  async presentAlertConfirm(id:any){
-    const alert = await this.alertController.create({
-      cssClass: 'my-custom-alert',
-      header: 'Borrar',
-      message: '¿Desea borrar?',
-      buttons: [
-        {
-          text: 'No',
-          role: 'cancel',
-          handler: (blah) => {
-          }
-        }, {
-          text: 'Si',
-          handler: () => {
-            this.borraNota(id)
-          }
-        }
-      ]
-    });
-   await alert.present();
-}
+  async presentAlertConfirm(id: any) {
+    switch (this.lang.selected) {
+      case "es":
+        const alert = await this.alertController.create({
+          cssClass: "my-custom-alert",
+          header: "Borrar",
+          message: "¿Desea borrar?",
+          buttons: [
+            {
+              text: "No",
+              role: "cancel",
+              handler: (blah) => {
+              }
+            }, {
+              text: "Si",
+              handler: () => {
+                this.borraNota(id)
+              }
+            }
+          ]
+        });
+        await alert.present();
+        break;
+      case "en":
+        const alert2 = await this.alertController.create({
+          cssClass: "my-custom-alert",
+          header: "Delete",
+          message: "¿Are you sure about delete this note?",
+          buttons: [
+            {
+              text: "No",
+              role: "cancel",
+              handler: (blah) => {
+              }
+            }, {
+              text: "Yes",
+              handler: () => {
+                this.borraNota(id)
+              }
+            }
+          ]
+        });
+        await alert2.present();
+        break;
+    }
+  }
 
   public async borraNota(id: any) {
-      this.notasS.borraNota(id)
-        .then(() => {
-          //ya está borrada allí
-          let tmp = [];
-          this.listaNotas.forEach((nota) => {
-            if (nota.id != id) {
-              tmp.push(nota);
-            }
-          })
-          this.listaNotas = tmp;
-          this.listaNotasCopy = this.listaNotas;
+    this.notasS.borraNota(id)
+      .then(() => {
+        //ya está borrada allí
+        let tmp = [];
+        this.listaNotas.forEach((nota) => {
+          if (nota.id != id) {
+            tmp.push(nota);
+          }
         })
-        .catch(err => {
+        this.listaNotas = tmp;
+        this.listaNotasCopy = this.listaNotas;
+      })
+      .catch(err => {
 
-        })
+      })
   }
 
 
@@ -132,22 +163,45 @@ export class Tab1Page implements OnInit{
     return await modal.present();
   }
 
-  showSearch(){
-      this.search = true;
+  showSearch() {
+    this.search = true;
   }
 
-  closeSearch(){
+  closeSearch() {
     this.search = false;
-}
+  }
 
-  public filterList(evt:any) {
+  //Filtro para la busqueda de notas
+
+  public filterList(evt: any) {
     const val = evt.srcElement.value;
     this.listaNotasCopy = this.listaNotas;
-    if(val && val.trim()!= ''){
-      this.listaNotasCopy = this.listaNotasCopy.filter((data)=>{
+    if (val && val.trim() != '') {
+      this.listaNotasCopy = this.listaNotasCopy.filter((data) => {
         return (data.titulo.toLowerCase().indexOf(val.toLowerCase()) > -1);
       })
     }
+  }
+
+  //Obtener las coordenadas del dispositivo
+
+  async obtenerCoordenadas(){
+    await this.locator.getPosition().then((respuesta)=>{
+      this.latitud = respuesta.coords.latitude;
+      this.longitud = respuesta.coords.longitude;
+    }).catch((error)=>{
+      console.log(error);
+    })
+console.log("latitud: "+this.latitud);
+    console.log("longitud: "+this.longitud);
+  }
+
+  //Crea la nota con las coordenadas del dispositivo
+
+  async parking() {
+    await this.obtenerCoordenadas();
+    this.notasS.createParking(this.latitud, this.longitud);
+    this.cargaDatos();
   }
 
 }
