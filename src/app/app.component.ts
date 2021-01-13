@@ -34,12 +34,13 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleBlackTranslucent();
       this.splashScreen.hide();
+      this.theme.selectedTheme();
       this.authS.init();
       this.Lang.setInitialAppLanguage();
     });
   }
 
-  //Finciones para cambiar el tema de la app
+  //Funciones para cambiar el tema de la app
 
   enableDark(){
     this.theme.enableDark();

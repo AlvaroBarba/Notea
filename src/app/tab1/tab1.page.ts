@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { AlertController, ModalController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { AlertController, IonInfiniteScroll, ModalController } from '@ionic/angular';
 import { Nota } from '../model/nota';
 import { EditNotaPage } from '../pages/edit-nota/edit-nota.page';
 import { NotasService } from '../services/notas.service';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { NotaPage } from '../pages/nota/nota.page';
 import { LanguageService } from '../services/language.service';
 import { LocationService } from '../services/location.service';
+import { LoadingService } from '../services/loading.service';
 
 
 @Component({
@@ -17,17 +18,21 @@ import { LocationService } from '../services/location.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
   public listaNotas = [];
   public listaNotasCopy = [];
+  public listaNotasCopy2 = [];
   public search: boolean = false;
   private latitud = null
   private longitud = null;
+  private num = 0;
 
   constructor(private notasS: NotasService,
     private modalController: ModalController,
     private nativeStorage: NativeStorage,
     private alertController: AlertController,
+    private loading : LoadingService,
     private authS: AuthService,
     private lang: LanguageService,
     private locator: LocationService,
@@ -50,7 +55,7 @@ export class Tab1Page implements OnInit {
     this.cargaDatos();
   }
 
-  public cargaDatos($event = null) {
+  public async cargaDatos($event?) {
     try {
       this.notasS.leeNotas()
         .subscribe((info: firebase.firestore.QuerySnapshot<firebase.firestore.DocumentData>) => {
@@ -192,8 +197,6 @@ export class Tab1Page implements OnInit {
     }).catch((error)=>{
       console.log(error);
     })
-console.log("latitud: "+this.latitud);
-    console.log("longitud: "+this.longitud);
   }
 
   //Crea la nota con las coordenadas del dispositivo
