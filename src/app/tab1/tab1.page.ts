@@ -49,6 +49,7 @@ export class Tab1Page implements OnInit {
 
 
   ionViewDidEnter() {
+    this.cargaDatos();
     this.notasS.loadCollection();
   }
 
@@ -67,7 +68,6 @@ export class Tab1Page implements OnInit {
             this.listaNotasCopy = this.listaNotas;
           });
           //Ocultar el loading
-          console.log(this.listaNotas);
           if ($event) {
             $event.target.complete();
           }

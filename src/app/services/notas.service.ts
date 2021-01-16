@@ -23,12 +23,11 @@ export class NotasService {
     private user: AuthService,
     private lang: LanguageService,
     private loader: LoadingController) {
-    console.log(this.user.getUser().userId);
     this.myCollection = fire.collection<any>(environment.userCollection).doc(this.user.getUser().userId).collection(environment.notasCollection);
   }
 
   loadCollection() {
-    // this.myCollection=this.fire.collection<any>(environment.userCollection).doc(this.user.getUser().userId).collection(environment.notasCollection);
+    this.myCollection=this.fire.collection<any>(environment.userCollection).doc(this.user.getUser().userId).collection(environment.notasCollection);
   }
 
   agregaNota(nuevaNota: Nota): Promise<any> {
