@@ -22,11 +22,9 @@ export class Tab1Page implements OnInit {
 
   public listaNotas = [];
   public listaNotasCopy = [];
-  public listaNotasCopy2 = [];
   public search: boolean = false;
   private latitud = null
   private longitud = null;
-  private num = 0;
 
   constructor(private notasS: NotasService,
     private modalController: ModalController,
@@ -52,7 +50,6 @@ export class Tab1Page implements OnInit {
 
   ionViewDidEnter() {
     this.notasS.loadCollection();
-    this.cargaDatos();
   }
 
   public async cargaDatos($event?) {
@@ -79,6 +76,31 @@ export class Tab1Page implements OnInit {
       //Error
     }
   }
+
+  /*public async cargaDatos($event?, reload?){
+    if(!$event){
+      await this.loading.presentLoading();
+    }
+    this.notasS.getNotas(reload).then(async d=>{
+      console.log(d);
+      if(reload){
+        this.listaNotas = d;
+      }else{
+        d.forEach((u)=>{
+          this.listaNotas.push(u);
+        });
+      }
+      if(!$event){
+        await this.loading.loadingController.dismiss();
+      }
+      if($event){
+        $event.target.complete();
+      }
+      this.infiniteScroll.disabled = !this.notasS.isInfiniteScrollEnabled();
+    });
+  }*/
+
+
 
   async presentAlertConfirm(id: any) {
     console.log("idioma = " + this.lang.selected)
