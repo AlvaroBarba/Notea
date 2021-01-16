@@ -18,7 +18,7 @@ import { LoadingService } from '../services/loading.service';
   styleUrls: ['tab1.page.scss']
 })
 export class Tab1Page implements OnInit {
-  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
+ // @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
 
   public listaNotas = [];
   public listaNotasCopy = [];
@@ -103,7 +103,6 @@ export class Tab1Page implements OnInit {
 
 
   async presentAlertConfirm(id: any) {
-    console.log("idioma = " + this.lang.selected)
     switch (this.lang.selected) {
       case "es":
         const alert = await this.alertController.create({

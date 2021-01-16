@@ -37,6 +37,12 @@
         "tema2":"Tema Claro",
         "tema3":"Tema Predeterminado"
         
+    },
+
+    "tabs":{
+        "tab1":"Notas",
+        "tab2":"Añadir Nota",
+        "tab3":"Perfil"
     }
 
 }

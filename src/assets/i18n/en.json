@@ -37,6 +37,12 @@
         "tema2":"Light Theme",
         "tema3":"Default Theme"
         
+    },
+
+    "tabs":{
+        "tab1":"Notes",
+        "tab2":"Add Note",
+        "tab3":"Profile"
     }
 
 }
